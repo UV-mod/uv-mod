@@ -1,0 +1,80 @@
+<shadow>
+	<div>
+		<span> $text </span>
+	</div>
+</shadow>
+
+<style>
+	div {
+		--a-color: hsl(220, 50%, 70%);
+		--a-2color: hsl(0, 50%, 70%);
+		--bg-color: hsl(222, 100%, 96%); /* hsl(222, 100%, 96%) */
+		--bg-2color: hsl(10, 100%, 92%);
+		--border-color: hsl(0, 0%, 100%);
+		--width: 3rem;
+
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		justify-content: center;
+
+		font: normal 16px/19px "UVM-Condo";
+		letter-spacing: 1px;
+
+		background-color: var(--bg-color);
+		color: var(--a-color);
+
+		padding: 4px 16px;
+		height: 1.5rem;
+		width: var(--width);
+
+		border: 2px solid var(--border-color);
+		border-radius: 0.5rem;
+		box-shadow: 1px 1px 0.2rem 0px var(--a-color), -1px -1px 0.2rem 2px var(--border-color);
+
+		transition: 0.5s;
+	}
+
+	div:hover {
+		box-shadow: 2px 2px 0.25rem 0px var(--a-2color), -1px -1px 0.2rem 4px var(--border-color);
+		background: linear-gradient(
+			90deg,
+			var(--bg-2color) 0%,
+			var(--bg-2color) 10%,
+			var(--border-color) 10%,
+			var(--border-color) 20%,
+			var(--bg-2color) 20%,
+			var(--bg-2color) 30%,
+			var(--border-color) 30%,
+			var(--border-color) 40%,
+			var(--bg-2color) 40%,
+			var(--bg-2color) 50%,
+			var(--border-color) 50%,
+			var(--border-color) 60%,
+			var(--bg-2color) 60%,
+			var(--bg-2color) 70%,
+			var(--border-color) 70%,
+			var(--border-color) 80%,
+			var(--bg-2color) 80%,
+			var(--bg-2color) 90%,
+			var(--border-color) 90%,
+			var(--border-color) 100%,
+			var(--bg-2color) 100%
+		);
+		color: var(--a-2color);
+		animation: 1.5s danser linear infinite;
+		border-color: transparent;
+	}
+
+	div:active {
+		animation: 0.5s danser linear infinite;
+	}
+
+	@keyframes danser {
+		to {
+			background-position: calc(var(--width) * 1.6);
+		}
+	}
+</style>
+
+<script></script>
