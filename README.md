@@ -4,9 +4,9 @@ usage:
 ```
 
 # Content:
-[Script API](## Script API)
-[Define uv component from file](## Define uv component from file)
-[Define uv component as muv](## Define uv component as muv)
+1. [Script API](#Script-API)
+2. [Define uv component from file](#Define-uv-component-from-file)
+3. [Define uv component as muv](#Define-uv-component-as-muv)
 
 file pattern:
 ``` html
