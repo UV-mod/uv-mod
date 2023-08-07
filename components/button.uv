@@ -77,4 +77,13 @@
 	}
 </style>
 
-<script></script>
+<script>
+	return {
+		observe: {
+			attributes: ["type"],
+			callback: (name, oldValue, newValue) => {
+				// console.log(this.querySelector("div > span").innerHTML = "$");
+			},
+		},
+	};
+</script>

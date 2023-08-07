@@ -41,7 +41,33 @@ declare global {
 	 * // use
 	 * uv.define("%componentPath%");
 	 * uv.render();
+	 * // or
+	 * uv.define("%componentPath%", "%componentPath2%", ... , "%componentPathN%");
+	 * uv.render();
 	 * ```
 	 */
 	var uv: UV;
 }
+
+/**
+ * ``` html
+ * <!-- example -->
+ * <script>
+ *   return {
+ *     attributes: ["type", ...],
+ *     callback: function (name, oldValue, newValue) {
+ *          * do some *
+ *     }
+ *   }
+ * </script>
+ * ```
+ */
+interface UVScriptApiReturns {
+	observe: {
+		attributes: string[];
+		callback: (name: string, oldValue: string, newValue: string) => void;
+	};
+}
+interface UVScriptApiMultiMethod {}
+
+function UVScriptApi(multiMethod: UVScriptApiMultiMethod, parentElement: Element, shadow: Element): UVScriptApiReturns?;
