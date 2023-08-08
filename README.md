@@ -10,7 +10,7 @@ usage:
 4. [Define uv component as muv](#Define-uv-component-as-muv)
 
 ## link:	
-1.[site](https://uv-mod.github.io/uv-mod/)
+1. [site](https://uv-mod.github.io/uv-mod/) https://uv-mod.github.io/uv-mod/
 
 file pattern:
 ``` html
