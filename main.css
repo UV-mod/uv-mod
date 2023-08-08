@@ -1,0 +1,13 @@
+.gallery {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+
+	scroll-snap-type: x mandatory;
+	scroll-snap-align: center;
+	scroll-snap-stop: normal;
+}
+
+body {
+	background-color: hsl(0, 20%, 90%);
+}

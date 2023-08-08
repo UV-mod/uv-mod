@@ -1,41 +1,44 @@
 <shadow>
-	<div>
-		<span> $text </span>
+	<div class="container">
+		<div class="wave"></div>
+		<div class="in">
+			<span> $text </span>
+		</div>
 	</div>
 </shadow>
 
-<style>
-	div {
+<style></style>
+
+<style name="roller">
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
+	div.in {
 		--a-color: hsl(220, 50%, 70%);
 		--a-2color: hsl(0, 50%, 70%);
-		--bg-color: hsl(222, 100%, 96%); /* hsl(222, 100%, 96%) */
+		--bg-color: hsl(222, 100%, 96%); /* hsl(222, 100%,
+	96%) */
 		--bg-2color: hsl(10, 100%, 92%);
 		--border-color: hsl(0, 0%, 100%);
 		--width: 3rem;
-
 		display: flex;
 		cursor: pointer;
 		align-items: center;
 		justify-content: center;
-
 		font: normal 16px/19px "UVM-Condo";
 		letter-spacing: 1px;
-
 		background-color: var(--bg-color);
 		color: var(--a-color);
-
 		padding: 4px 16px;
 		height: 1.5rem;
 		width: var(--width);
-
 		border: 2px solid var(--border-color);
 		border-radius: 0.5rem;
 		box-shadow: 1px 1px 0.2rem 0px var(--a-color), -1px -1px 0.2rem 2px var(--border-color);
-
 		transition: 0.5s;
 	}
 
-	div:hover {
+	div.in:hover {
 		box-shadow: 2px 2px 0.25rem 0px var(--a-2color), -1px -1px 0.2rem 4px var(--border-color);
 		background: linear-gradient(
 			90deg,
@@ -65,14 +68,90 @@
 		animation: 1.5s danser linear infinite;
 		border-color: transparent;
 	}
-
-	div:active {
+	div.in:active {
 		animation: 0.5s danser linear infinite;
 	}
-
 	@keyframes danser {
 		to {
 			background-position: calc(var(--width) * 1.6);
+		}
+	}
+</style>
+
+<style name="circled">
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
+	div.in {
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		justify-content: center;
+
+		font: normal 16px/19px "UVM-Condo";
+
+		background-color: #fdfdfd;
+		color: #000000;
+
+		width: fit-content;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+
+		box-shadow: 0px 1px 2px 0px black;
+	}
+
+	div.in:hover {
+		box-shadow: 0px 2px 4px 0px black;
+	}
+	div.in:active {
+		box-shadow: 0px 0px 2px 0px black;
+	}
+	div.in span {
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	div.in::before {
+		content: "";
+		position: absolute;
+		display: block;
+		width: var(--width);
+		height: var(--height);
+	}
+
+	/* div.in.click:before {
+		width: var(--width);
+		height: var(--height);
+		box-shadow: 0px 0px 4px 0px black, inset 0px 0px 4px 0px black;
+		border-radius: 0.5rem;
+		animation: 2s wave;
+	} */
+
+	@keyframes wave {
+		0% {
+			transform: scale(100%);
+			opacity: 1;
+		}
+		90% {
+			transform: scale(150%);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(150%);
+			opacity: 0;
+		}
+	}
+
+	div.in:active div.wave {
+		--w123: hsl(203, 65%, 88%);
+	}
+
+	@keyframes d_act_1 {
+		0% {
+			box-shadow: inset 0px 0px 2px 0px black;
+		}
+		100% {
+			box-shadow: inset 0px 2px 4px 0px black;
 		}
 	}
 </style>
@@ -82,8 +161,68 @@
 		observe: {
 			attributes: ["type"],
 			callback: (name, oldValue, newValue) => {
-				// console.log(this.querySelector("div > span").innerHTML = "$");
+				if (name == "type") {
+					if (newValue == "roller") {
+						this.style.innerHTML = this.templates.getElement("style[name=roller]", "innerHTML");
+					}
+					if (newValue == "circled") {
+						this.style.innerHTML = this.templates.getElement("style[name=circled]", "innerHTML");
+
+						const container = this.querySelector("div.in");
+						window.addEventListener("load", () => {
+							const rect = container?.getBoundingClientRect();
+							container.style.setProperty("--width", parseInt(rect.width) + "px");
+							container.style.setProperty("--height", parseInt(rect.height) + "px");
+						});
+
+						container.waves = [];
+						const waveTime = 2;
+						const waveMaxSizeScale = 1.1;
+						const intervalTime = 10;
+						const waveColor = "#000020";
+
+						setInterval(() => {
+							container.waves.forEach((wave) => {
+								wave.style.width = parseFloat(wave.style.width) + (wave.addW || 0) + "px";
+								wave.style.height = parseFloat(wave.style.height) + (wave.addW || 0) + "px";
+								wave.style.opacity = parseFloat(wave.style.opacity) + (wave.addO || 0);
+								wave.style.borderRadius = parseFloat(wave.style.borderRadius) * 1.01 + "rem";
+							});
+						}, intervalTime);
+						let handler = (ev) => {
+							ev.preventDefault();
+							let wave = document.createElement("div");
+							wave.style.position = "absolute";
+							let sh = `0px 0px 3px 0px ${waveColor}`;
+							wave.style.boxShadow = `${sh}, inset ${sh}`;
+							wave.style.pointerEvents = "none";
+
+							const rect = container?.getBoundingClientRect();
+							wave.style.width = rect.width * 1 + "px";
+							wave.style.height = rect.height * 1 + "px";
+							// wave.style.border = `1px solid ${waveColor}`;
+							wave.style.borderRadius = "0.5rem";
+							wave.style.opacity = "0.5";
+							wave.style.zIndex = "-1000";
+
+							wave.addW = (waveMaxSizeScale * rect.width - rect.width) / waveTime / intervalTime;
+							wave.addH = (waveMaxSizeScale * rect.height - rect.height) / waveTime / intervalTime;
+							wave.addO = -0.1 / waveTime / intervalTime;
+
+							container.appendChild(wave);
+							container.waves.push(wave);
+
+							setTimeout(() => {
+								wave.remove();
+							}, waveTime * 1000);
+						};
+						container.addEventListener("mousedown", handler);
+						container.addEventListener("mouseup", handler);
+					}
+				}
 			},
 		},
+		// Todo
+		// events: [{name: "", handler: () => {}}],
 	};
 </script>

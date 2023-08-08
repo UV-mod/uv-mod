@@ -67,6 +67,7 @@ interface UVScriptApiReturns {
 		attributes: string[];
 		callback: (name: string, oldValue: string, newValue: string) => void;
 	};
+	events: {name: string; handler: () => any}[];
 }
 interface UVScriptApiMultiMethod {}
 
