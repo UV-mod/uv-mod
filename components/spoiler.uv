@@ -1,0 +1,185 @@
+<shadow>
+	<div class="container">
+		<span class="triangle">
+			<div class="heart" style="--delay: 0.25s"></div>
+			<div class="heart" style="--delay: 0.5s"></div>
+			<div class="heart" style="--delay: 0.75s"></div>
+			<div class="heart" style="--delay: 1s"></div>
+		</span>
+		<div class="title">
+			<span class="text"></span>
+		</div>
+		<div class="text"> $text </div>
+		<embed src="./sound-typing-machine.mp3" autostart="false" width="0" height="0" id="sound1" />
+	</div>
+</shadow>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Rubik:wght@300;500&display=swap");
+
+	div.title {
+		font-family: "Rubik", sans-serif;
+		font-weight: 100;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+	div.title::after {
+		background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjk5NiIgaGVpZ2h0PSI0MzAiIHZpZXdCb3g9IjAgMCAyOTk2IDQzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTUwMCIgY3k9IjIzMiIgcj0iMjYiIGZpbGw9ImJsYWNrIi8+CjxjaXJjbGUgY3g9IjE1MDAiIGN5PSI3NCIgcj0iMjYiIGZpbGw9ImJsYWNrIi8+CjxjaXJjbGUgY3g9IjE1MDAiIGN5PSIyOTMiIHI9IjE0IiBmaWxsPSJibGFjayIvPgo8Y2lyY2xlIGN4PSIxNTAwIiBjeT0iMTQiIHI9IjE0IiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMTI4MCAzMTkuNUMxMjg2LjUgMzM1IDEyODAgMzUwIDEyNTkuNSAzNDYuNUMxMjM2IDMzOSAxMjMyLjUgMjk5LjUgMTI1OS41IDI4Ny41QzEyODMuMTEgMjc4LjE4MyAxMjk1IDI3OSAxMzIwIDI5OS41QzEzNjMuNSAzNDYuNSAxMzIwIDQyNC41IDEyNDUgNDI0LjVDMTE2MC41IDQyNC41IDEwODcuNSAzMTAgMTEzOSAyMjEuNUMxMTgzLjUxIDE1MC41NTcgMTIyOSAxMjQuNDM5IDEyODkuNSAxMTMuNUMxMzQ4LjI5IDEwMi44NyAxMzc4LjA2IDExMC4xMzkgMTQyOC41IDEzNCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNDMzLjUgMTM4QzEzMDMuNSA4OCAxMTc1IDIwMiAxMjA4IDI0NEMxMjU0IDI5NS41IDEzNzAuMDYgMjU3LjUgMTM2NyAyMTAuNUMxMzYzIDE0OSAxMjk0LjUgOTkuNSAxMTc1IDExNC41QzEwODAgMTMxLjUgMTA0Mi4xOSAxNTQuMTc4IDk5MCAyMjBMOTk5LjUgMTc4LjVDOTg2LjM0NyAxOTYuMjgyIDk3MC41IDIwMyA5NTUgMjAzQzgyNS41IDE3NS41IDc5NS4xMDIgODAuNDQ2NSA2OTMuNSA3OEM2NjIuMDA5IDgyLjUyNzUgNjQ4LjMgOTYuOTk4OCA2MzUgMTU2LjUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMCA5NS41MDAyTDEzMzQuNSA4OC4wNDIxQzEzMzguNjQgODguMDE5IDEzNDIgOTEuMzY0OSAxMzQyIDk1LjUwMDJDMTM0MiA5OS42MzU1IDEzMzguNjQgMTAyLjk4MSAxMzM0LjUgMTAyLjk1OEwwIDk1LjUwMDJaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNMTcxNS41IDMxOS41QzE3MDkgMzM1IDE3MTUuNSAzNTAgMTczNiAzNDYuNUMxNzU5LjUgMzM5IDE3NjMgMjk5LjUgMTczNiAyODcuNUMxNzEyLjM5IDI3OC4xODMgMTcwMC41IDI3OSAxNjc1LjUgMjk5LjVDMTYzMiAzNDYuNSAxNjc1LjUgNDI0LjUgMTc1MC41IDQyNC41QzE4MzUgNDI0LjUgMTkwOCAzMTAgMTg1Ni41IDIyMS41QzE4MTEuOTkgMTUwLjU1NyAxNzY2LjUgMTI0LjQzOSAxNzA2IDExMy41QzE2NDcuMjEgMTAyLjg3IDE2MTcuNDQgMTEwLjEzOSAxNTY3IDEzNCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNTYyIDEzOEMxNjkyIDg4IDE4MjAuNSAyMDIgMTc4Ny41IDI0NEMxNzQxLjUgMjk1LjUgMTYyNS40NCAyNTcuNSAxNjI4LjUgMjEwLjVDMTYzMi41IDE0OSAxNzAxIDk5LjUgMTgyMC41IDExNC41QzE5MTUuNSAxMzEuNSAxOTUzLjMxIDE1NC4xNzggMjAwNS41IDIyMEwxOTk2IDE3OC41QzIwMDkuMTUgMTk2LjI4MiAyMDE5LjQ1IDIwMS45NzYgMjA0MC41IDIwM0MyMTcwIDE3NS41IDIyMDAuNCA4MC40NDY1IDIzMDIgNzhDMjMzMy40OSA4Mi41Mjc1IDIzNDcuMiA5Ni45OTg4IDIzNjAuNSAxNTYuNSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yOTk1LjUgOTUuNTAwMkwxNjYxIDg4LjA0MjFDMTY1Ni44NiA4OC4wMTkgMTY1My41IDkxLjM2NDkgMTY1My41IDk1LjUwMDJDMTY1My41IDk5LjYzNTUgMTY1Ni44NiAxMDIuOTgxIDE2NjEgMTAyLjk1OEwyOTk1LjUgOTUuNTAwMloiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xNDk5IDE0LjVDMTQ5OSAxNC41IDE0OTkgODkuNDY1NSAxNDk5IDEzNy41TTE0OTkgMTM3LjVDMTQ3Mi42NCAxNzMuMjMzIDE0MzEuNSAyMjkgMTQzMS41IDIyOU0xNDk5IDEzNy41QzE1MjUuNzUgMTczLjIzMyAxNTY3LjUgMjI5IDE1NjcuNSAyMjlNMTQ5OSAxMzcuNUMxNTM4LjQ0IDEyMy44MzIgMTYwMCAxMDIuNSAxNjAwIDEwMi41TTE0OTkgMTM3LjVDMTQ1Ny4wMiAxMjMuODMyIDEzOTEuNSAxMDIuNSAxMzkxLjUgMTAyLjUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K),
+			no-repeat;
+		background-repeat: no-repeat;
+
+		background-size: contain;
+		content: "";
+		display: block;
+		width: 100%;
+		height: 32px;
+		border-radius: 1rem;
+		transition: 0.5s;
+	}
+
+	div.container {
+		--ba-bg-color-: hsl(0, 0%, 0%);
+		width: 100%;
+	}
+
+	span.triangle {
+		width: 100%;
+		height: 16px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 0.5rem;
+	}
+
+	.heart {
+		background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAc9JREFUSEvFlo1NQzEMhNNNYBJgEmASYBJgEmAS2AT0oTi65xcnTqWnWqpaqY7vfL78nMqF4nQh3HIO8FUp5baUwvdPJc7350oTWWBAHkopT4PiBv6eITEDzgB6LkbgRRTZ8R0BA/pRJbWFyPlVO+K3yn5TR2C5ELiLwCNgCn4LTYo8JiT0ZEPwCJhOMRCBZM8LxvHj6YL3gF+rkc4BVX6QNTO+VcXa/x6YLumWgOn1Qqc+lc5pgpq7UXlg7RZj6N6kg3shxcwJurLitpVsf6tXqEXN//DAGIpkL43Kpq4l14f3hPllo6ACq8y62Ds8oz4jsq6VdFNRgTmZkJpARromlFAGlBwdk65vdSNgZUwhG0EWWOuqYk1JTVBJPHBvxhGJ3r7/9UpGM/aOZp06PgLdOLcmdUeYMZeCjMB7oKztKhnNIioSdZ7Nb3h+H+ueG10K2vkIVB29ORs8sDpwdmQCTn47jTqD18tm45vZJbE73LP7yc12eklQV+9Uuub8XbkWvaG6yh39EPCnWBNs5ekDc/vY88cUwkS9p09o0CMee5CZvlpmwCYNc+fe5RSKwvyAkexmCpOzwEoAEnYP26P+sAf9wi7Kpa52nKuayPoDFE+KH8SdUqkAAAAASUVORK5CYII=)
+			no-repeat;
+		background-size: contain;
+		width: 16px;
+		height: 16px;
+	}
+
+	span.triangle .heart {
+		--delay: 1s;
+		border-radius: 50%;
+		opacity: 50%;
+		cursor: pointer;
+		transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+		animation: 5s var(--delay) pulseDown infinite;
+	}
+
+	@keyframes pulseDown {
+		0% {
+			transform: translateY(0px);
+		}
+		10% {
+			transform: translateY(5px);
+		}
+		20% {
+			transform: translateY(-5px);
+		}
+		30% {
+			transform: translateY(0px);
+		}
+	}
+
+	span.triangle:hover .heart {
+		opacity: 100%;
+	}
+	span.triangle:active .heart {
+		transform: translateY(10px);
+	}
+
+	div.container::before {
+		content: "";
+		/* background: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0) 0%,
+			var(--ba-bg-color-) 35%,
+			var(--ba-bg-color-) 75%,
+			rgba(0, 0, 0, 0) 100%
+		); */
+		display: block;
+		width: 100%;
+		height: 2px;
+		border-radius: 1rem;
+		transition: 0.5s;
+		/* margin-bottom: 0.5rem; */
+	}
+
+	div.container::after {
+		content: "";
+		/* background: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0) 0%,
+			var(--ba-bg-color-) 35%,
+			var(--ba-bg-color-) 75%,
+			rgba(0, 0, 0, 0) 100%
+		); */
+		display: block;
+		width: 100%;
+		height: 2px;
+		border-radius: 1rem;
+		transition: 0.5s;
+		margin-top: 0.5rem;
+	}
+</style>
+
+<script>
+	// const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+	// const audioContext = new AudioContext();
+
+	const container = this.querySelector(".container");
+	container.titleText = "open";
+	container.cropedText = container.querySelector("div.text").innerHTML;
+	container.state = "open";
+	container.textWidth = container.querySelector("div.text").getBoundingClientRect().width;
+	container.isTyping = false;
+
+	container.querySelector("span.triangle").addEventListener("click", () => {
+		if (container.isTyping) return;
+		container.state = container.state == "open" ? "closed" : "open";
+		start();
+	});
+
+	function start() {
+		if (container.state == "closed") {
+			container.cropedText = container.querySelector("div.text").innerHTML;
+			container.querySelector("div.text").innerHTML = "";
+			container.querySelector(".title span.text").innerHTML = container.titleText;
+			container.querySelector(".title").style.width = container.textWidth + "px";
+			container.querySelector(".title").style.display = "flex";
+		} else if (container.state == "open") {
+			container.querySelector(".title").style.display = "none";
+			container.isTyping = true;
+			var i = setInterval(() => {
+				container.querySelector("div.text").innerHTML += container.cropedText.at(0);
+				container.cropedText = container.cropedText.slice(1);
+				if (!container.cropedText) {
+					clearInterval(i);
+					container.querySelector("div.text").innerHTML = multiMethod.replaceHtmlEntites(
+						container.querySelector("div.text").innerHTML
+					);
+					container.isTyping = false;
+				}
+			}, 1);
+		}
+	}
+
+	return {
+		observe: {
+			attributes: ["title", "state"],
+			callback: (name, oldValue, newValue) => {
+				if (name == "title") {
+					container.titleText = newValue;
+				} else if (name == "state") {
+					container.state = newValue;
+					start();
+				}
+			},
+		},
+	};
+</script>

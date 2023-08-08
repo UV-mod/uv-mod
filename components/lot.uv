@@ -39,6 +39,8 @@
 		z-index: 100;
 		padding: 0px 1rem;
 
+		transition: 1s;
+
 		/* box-shadow: 1px 0px 1px 0px black; */
 		/* border: 1px solid black; */
 
@@ -68,7 +70,9 @@
 			attributes: ["info"],
 			callback: (name, oldValue, newValue) => {
 				if (name == "info") {
-					this.querySelector(".preview").innerHTML = newValue;
+					this.querySelector(
+						".preview"
+					).innerHTML = `<uv-spoiler title="open button lore" state="closed">${newValue}</uv-spoiler>`;
 				}
 			},
 		},
