@@ -72,7 +72,7 @@
 				if (name == "info") {
 					this.querySelector(
 						".preview"
-					).innerHTML = `<uv-spoiler title="open button lore" state="closed">${newValue}</uv-spoiler>`;
+					).innerHTML = `<uv-spoiler title="open to «button lore»" state="closed">${newValue}</uv-spoiler>`;
 				}
 			},
 		},
